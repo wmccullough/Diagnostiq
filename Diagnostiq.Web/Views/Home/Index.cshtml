@@ -1,0 +1,14 @@
+﻿@using Chart.Mvc.ComplexChart
+@using Chart.Mvc.Extensions
+@model ComplexDataset
+    
+@{
+    var barChart = new BarChart();
+    barChart.ComplexData.Labels.AddRange(new[] { "January", "February", "March", "April", "May", "June" });
+    barChart.ComplexData.Datasets.AddRange(new List<ComplexDataset>
+                           {
+                              Model
+                          });
+}
+<canvas id="myCanvas" width="400" height="400"></canvas>
+@Html.CreateChart("myCanvas", barChart)
